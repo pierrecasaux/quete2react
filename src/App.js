@@ -12,4 +12,5 @@ function App() {
   );
 }
 
+const rootElement = document.getElementById("root");
 export default App;

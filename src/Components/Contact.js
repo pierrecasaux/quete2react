@@ -1,41 +1,42 @@
 import React from 'react';
 import './Contact.css';
 
-function Contact(props) {
-    return (
-        <div className="Contact">
-            <img className="avatar" src={props.avatar} alt="avatar profile" />
-            <div>
-                <h4 className="name">{props.name}</h4>
-                <div className="status">
-                    <span className={props.online ? "status-online" : "status-offline"}> </span>
-                    <span className="status-text"> {props.online ? 'online' : 'offline'}</span>
-                </div>
-            </div>
-        </div>
-    );
-}
+// function Contact(props) {
+//     return (
+//         <div className="Contact">
+//             <img className="avatar" src={props.avatar} alt="avatar profile" />
+//             <div>
+//                 <h4 className="name">{props.name}</h4>
+//                 <div className="status">
+//                     <span className={props.online ? "status-online" : "status-offline"}> </span>
+//                     <span className="status-text"> {props.online ? 'online' : 'offline'}</span>
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// }
 
 class Contact extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            online = false,
+            online: false,
         };
     }
     render() {
         return (
             <div className="Contact">
-                <img className="avatar" src={props.avatar} alt="avatar profile" />
+                <img className="avatar" src={this.props.avatar} alt="avatar profile" />
                 <div>
-                    <h4 className="name">{props.name}</h4>
+                    <h4 className="name">{this.props.name}</h4>
                     <div className="status"
                         onClick={event => {
                             const newStatus = !this.state.online;
-                            this.setState({ online = newStatus });
+                            this.setState({ online: newStatus });
                         }}
-                    ><span className={props.online ? "status-online" : "status-offline"}> </span>
-                        <span className="status-text"> {props.online ? 'online' : 'offline'}</span>
+                    >
+                        <span className={this.state.online ? "status-online" : "status-offline"}> </span>
+                        <span className="status-text"> {this.props.online ? 'online' : 'offline'}</span>
                     </div>
                 </div>
             </div>
